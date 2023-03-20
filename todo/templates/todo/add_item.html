@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add a new item </h1>
+    <!-- Create a form to enter a name for a todo item and whether it's done -->
+    <!-- GET requests get info from the server; POST requests post info to the server. Here we're sending data of a new item to the /add url -->
+    <form method="POST" action="add">
+        <!-- Add this token WHEN YOU POST IN DJANGO. 
+            Makes sure the data we post comes from our to do list app and not another site. 
+            If you don't add this there will be an ERROR-->
+        {% csrf_token %}
+
+        <!-- WATCH CURLY BRACKETS AND % -->
+        <!-- Add .as_p to make it a paragraph and .as_table to make the form a table -->
+        {{ form.as_p }}
+        <div>
+            <p>
+            <button type="submit">Add Item</button>
+            </p>
+        </div>
+    </form>
+</body>
+</html>
